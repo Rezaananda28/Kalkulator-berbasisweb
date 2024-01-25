@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KALKULATOR</title>
+
+    <!------------------- CSS -------------->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            outline: none;
+        }
+
+        body {
+            background-image: url(https://i.ibb.co/mHrWgkV/forest-7471935.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #ecf0f3;
+            margin-top: 10px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .in-container {
+            background-color: #ecf0f3;
+            padding:15px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: inset 5px 5px 12px #fff, 5px 5px 12px rgba(0, 0, 0, .16);
+            display: grid;
+            grid-template-columns: repeat(4, 68px);
+        }
+
+        input {
+            grid-column: span 4;
+            height: 10px;
+            width: 260px;
+            background-color: #ecf0f3;
+            box-shadow: inset -5px -5px 12px #fff, 5px 5px 12px rgba(0, 0, 0, .16);
+            border: none;
+            border-radius: 30px;
+            color: rgb(70, 70, 70);
+            font-size: 50px;
+            text-align: end;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        button {
+            height: 48px;
+            width: 48px;
+            background-color: #ecf0f3;
+            box-shadow: inset -5px -5px 12px #fff, 5px 5px 12px rgba(0, 0, 0, .16);
+            border: none;
+            border-radius: 50%;
+            margin: 8px;
+            font-size: 16px;
+        }
+
+        .equal {
+            width: 115px;
+            border-radius: 40px;
+            box-shadow: inset -5px -5px 12px #fff, 5px 5px 12px rgba(0, 0, 0, .16);
+        }
+    </style>
+
+</head>
+
+    <!------------------- HTML -------------->
+<body>
+    <h1>BASIS KALKULATOR</h1>
+    <div class="container">
+        <div class="in-container">
+            <input type="text" placeholder="0" id="output">
+            <button onclick="clearOutput()">C</button>
+            <button onclick="del()">DEL</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="calculate()" class="equal">=</button>
+        </div>
+    </div>
+
+    <!------------------- JAVASCRIPT -------------->
+    <script>
+        let output = document.getElementById("output")
+        function display(num) {
+            output.value += num
+        }
+        function calculate() {
+            try {
+                output.value = eval(output.value);
+            } catch (error) {
+                alert('tidak valid')
+            }
+        }
+
+        function clearOutput() {
+            output.value = "";
+        }
+
+        function del() {
+            output.value = output.value.slice(0, -1)
+        }
+    </script>
+</body>
+
+</html>
